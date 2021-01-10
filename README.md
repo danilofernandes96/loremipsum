@@ -18,5 +18,6 @@ Django V.: 3.1.5
 *Abrir projeto
 * manage.py runserver
 
-* Caso seja implementado o módulo de sessão a tempo, os dados de autenticação são os seguintes:
-User: admin || Password: 1234
+*Caso seja implementado o módulo de sessão a tempo, os dados de autenticação são os seguintes:
+* User: admin
+* Password: 1234
