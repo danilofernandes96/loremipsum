@@ -49,7 +49,7 @@ def editProject(request, id):
 def deleteProject(request, id):
     project = get_object_or_404(Project, pk=id)
     project.delete()
-    messages.info(request, 'Tarefa deletada com sucesso.')
+    messages.info(request, 'Projeto deletado com sucesso.')
 
     return redirect('/')
 
