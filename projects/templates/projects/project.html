@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Lista de projetos{% endblock %}
+{% block content%}
+
+<div class="offset-1 col-10 list-div">
+    <h1>{{project.name}}</h1><br>
+    <p> <b>Valor:</b> R$ {{project.price}}</p>
+    <p><b>Data de início:</b> {{project.startData}}</p>
+    <p><b>Data de término:</b> {{project.endData}}</p>
+    <p><b>Risco:</b> {{project.risk}}</p>
+    <p><b>Participantes:</b> {{project.stakeholders}}</p>
+    <div style="padding: 5px">
+        <a href="simulator/{{project.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button class="btn btn-primary"> Simular investimento</button>
+        </a>
+        <br>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Calcule o retorno de investimento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="investimento">Insira o valor do investimento</label><br>
+                    <input type="number" name="investimento" id="investimento"><br><br>
+                    <label for="mostrar">Resultado </label><br>
+                    <input type="text" class="form-control" id="mostrar" value="" disabled> </input>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="pegar()">Calcular</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function pegar(){
+        var investimento = parseFloat(document.getElementById('investimento').value);
+        var risco = {{project.risk}};
+        var valor = parseFloat({{project.price}});
+        var retorno;
+        if (investimento < valor){
+            window.alert('Erro: valor do investimento não pode ser menor que o valor do projeto');
+        } else if (risco == 0){
+            retorno = investimento * 5 / 100;
+            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 5%';
+        } else if (risco == 1){
+            retorno = investimento * 10 / 100;
+            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 10%';
+        } else if (risco == 2) {
+            retorno = investimento * 20 / 100;
+            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 20%';
+        }
+    }
+
+</script>
+{% endblock %}

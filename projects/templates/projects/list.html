@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Lista de projetos{% endblock %}
+
+{% block content%}
+<div class="offset-1 col-10 list-div">
+    <h1>Lista de projetos</h1>
+    <a id="add-link" href="newproject/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i> Adicionar projeto
+        </div>
+    </a>
+    <div class="col-9 search-div">
+        <form method="GET" id="search-form">
+            <input class="form-control" type="text" id="search" name="search"
+                   placeholder="Digite o nome do projeto para buscar..." value="{{ request.GET.search }}">
+            <i class="fas fa-search" id="search-btn"></i>
+        </form>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %}class="alert alert-{{message.tags}}" {% endif %}>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <ul class="project-list">
+        {% for project in projects%}
+        <li class="project-item">
+            <span><a href="/project/{{project.id}}">{{project.name}}</a></span>
+            <a href="delete/{{project.id}}" class="delete-btn"><span><i
+                    class="fas fa-trash"></i></span></a>
+            <a href="edit/{{project.id}}"><span><i class="fas fa-edit"></i></span></a>
+
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if projects.has_previous %}
+            <a href="?page={{projects.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+
+            {% if projects.paginator.num_pages %}
+            <span class="current">
+                {{ projects.number }} de {{ projects.paginator.num_pages }}
+            </span>
+            {% endif %}
+
+            {% if projects.has_next %}
+            <a href="?page={{projects.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock %}

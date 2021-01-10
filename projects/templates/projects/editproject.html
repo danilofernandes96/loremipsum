@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Editando {{project.name}} {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<div class="offset-1 col-10 list-div">
+    <h1>Editando: '{{project.name}}'</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }} 
+        <input type="submit" class="btn btn-success" value="Editar projeto">
+    </form>
+    
+</div>
+<script>
+    $('.dinheiro').mask('#.##0,00', {reverse: true});
+</script>
+{% endblock %}

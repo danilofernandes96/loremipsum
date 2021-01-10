@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Adicione um projeto{% endblock %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content%}
+<div class="offset-1 col-10 list-div">
+    <h1>Adicione seu novo projeto:</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-success" value="Criar projeto">
+    </form>
+    
+</div>
+{% endblock %}
