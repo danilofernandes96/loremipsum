@@ -50,13 +50,13 @@
             window.alert('Erro: valor do investimento não pode ser menor que o valor do projeto');
         } else if (risco == 0){
             retorno = investimento * 5 / 100;
-            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 5%';
+            document.getElementById('mostrar').value = 'R$ '+ retorno.toFixed(2) + ' é o seu retorno em 5%';
         } else if (risco == 1){
             retorno = investimento * 10 / 100;
-            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 10%';
+            document.getElementById('mostrar').value = 'R$ '+ retorno.toFixed(2) + ' é o seu retorno em 10%';
         } else if (risco == 2) {
             retorno = investimento * 20 / 100;
-            document.getElementById('mostrar').value = 'R$ '+ retorno + ' é o seu retorno em 20%';
+            document.getElementById('mostrar').value = 'R$ '+ retorno.toFixed(2) + ' é o seu retorno em 20%';
         }
     }
 
