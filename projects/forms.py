@@ -13,7 +13,7 @@ class ProjectForm(forms.ModelForm):
             'endData': forms.DateInput(
                 attrs={'class': 'input', 'type': 'date', 'placeholder': 'Insira a data de término'}),
             'price': forms.NumberInput(
-                attrs={'class': 'input', 'type': 'number', 'name': 'dinheiro', 'id': 'dinheiro'}),
+                attrs={'class': 'input', 'type': 'number', 'name': 'dinheiro', 'id': 'dinheiro', 'step': '.01'}),
             'stakeholders': forms.TextInput(
                 attrs={'class': 'input', 'name': 'stakeholders[]'}),
 
