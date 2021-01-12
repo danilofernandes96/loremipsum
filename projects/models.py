@@ -9,7 +9,7 @@ class Project(models.Model):
         (2, 'alto'),
     )
     name = models.CharField('Nome do projeto', max_length=255)
-    startData = models.DateField('Data de início',auto_now=False)
+    startData = models.DateField('Data de início', blank=False, auto_now=False)
     endData = models.DateField('Data de término', auto_now=False)
     risk = models.IntegerField(
         'Risco',choices=OPTIONS,

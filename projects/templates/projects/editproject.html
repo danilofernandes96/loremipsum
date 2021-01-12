@@ -7,9 +7,10 @@
     <h1>Editando: '{{project.name}}'</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form|crispy }} 
+        {{ form|crispy }} <br>
         <input type="submit" class="btn btn-success" value="Editar projeto">
     </form>
+    <br>
     
 </div>
 <script>
