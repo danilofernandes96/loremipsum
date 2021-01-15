@@ -37,13 +37,19 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Sobre Nós</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/accounts/logout">Sair</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
     {% block content %}
     {% endblock %}
     <footer>
-        <p>Desenvolvido por <a href="https://www.linkedin.com/in/danilofernandes96/" target="_blank">Danilo Fernandes</a> | Lorem Ipsum Inc. © 2021</p>
+        <p>Desenvolvido por <a href="https://www.linkedin.com/in/danilofernandes96/" target="_blank">Danilo
+            Fernandes</a> | Lorem Ipsum Inc. © 2021</p>
     </footer>
 </div>
 
