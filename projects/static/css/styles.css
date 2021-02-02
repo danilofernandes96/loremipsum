@@ -46,6 +46,10 @@
     margin-left: 5px;
 }
 
+.add-div:hover {
+    background-color:blue; 
+}
+
 /* Search */
 
 .fas.fa-search {
@@ -53,13 +57,18 @@
     top: 12px;
     right: 26px;
     cursor: pointer;
+
 }
 
 .search-div {
     padding: 0;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     display: inline-block;
+}
+
+#search:hover {
+    border-color:lightseagreen;
 }
 
 /* Lista de projetos */
@@ -78,7 +87,7 @@
     height: 50px;
     padding: 0 15px;
     padding-top: 10px;
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .fas.fa-trash {
